@@ -275,6 +275,10 @@ const ShowHubConfig = function(n, shared = 0){
         ActionWithInterface(n, i, ConfigHubInterface)
     });
 
+    if(n.interface.length){
+        ConfigHubIndent();
+    }
+
     if (shared){
         DisableFormInputs();
     }
@@ -295,16 +299,20 @@ const ShowSwitchConfig = function(n, shared = 0){
     // Add hostname
     ConfigSwitchName(hostname);
 
-    //Add checkbox STP
+    // Add checkbox STP
     ConfigSwtichSTP(n.config.stp);
 
-    //Add VLAN
+    // Add VLAN
     ConfigVLAN(n);
 
     // Add interfaces
     $.each(n.interface, function (i) {
         ActionWithInterface(n, i, ConfigSwitchInterface)
     });
+
+    if(n.interface.length){
+        ConfigSwitchIndent();
+    }
 
     if (shared){
         DisableFormInputs();

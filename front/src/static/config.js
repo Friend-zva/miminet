@@ -391,6 +391,20 @@ const ConfigSwitchInterface = function (name, ip, netmask, connected_to) {
     ConfigItemInterface(name, ip, netmask, connected_to, "switch");
 }
 
+const ConfigItemIndent = function (item) {
+    let conf_item = 'config_' + item
+    let text = document.getElementById(conf_item + '_indent_script').innerHTML;
+    $(text).insertBefore('#' + conf_item + '_main_form_submit_button');
+}
+
+const ConfigHubIndent = function () {
+    ConfigItemIndent("hub");
+}
+
+const ConfigSwitchIndent = function () {
+    ConfigItemIndent("switch");
+}
+
 const ConfigHostJobOnChange = function (evnt) {
 
     let elem = null;
